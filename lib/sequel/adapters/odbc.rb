@@ -28,7 +28,7 @@ module Sequel
         else
           ::ODBC::connect(opts[:database], opts[:user], opts[:password])
         end
-        conn.autocommit = true
+        (conn.autocommit = true rescue false)
         conn
       end      
 
